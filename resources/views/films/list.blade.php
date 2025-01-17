@@ -4,6 +4,7 @@
     <FONT COLOR="red">No se ha encontrado ninguna película</FONT>
 @else
     <div align="center">
+        <p>Total de películas: {{ $contador }}</p>
     <table border="1">
         <tr>
             @foreach($films as $film)
