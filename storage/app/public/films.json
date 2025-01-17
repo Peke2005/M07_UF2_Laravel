@@ -4,7 +4,7 @@
         "year": 1985,
         "genre": "Drama",
         "country": "hospitalet",
-        "duration": "190",
+        "duration": 190,
         "img_url": "https://es.web.img2.acsta.net/medias/nmedia/18/79/45/34/20253823.jpg"
     },
     {
@@ -12,7 +12,7 @@
         "year": 1985,
         "genre": "Comedia",
         "country": "hospitalet",
-        "duration": "200",
+        "duration": 200,
         "img_url": "https://pics.filmaffinity.com/El_club_de_los_cinco-192309838-large.jpg"
     },
     {
@@ -20,7 +20,7 @@
         "year": 1994,
         "genre": "Drama",
         "country": "hospitalet",
-        "duration": "300",
+        "duration": 300,
         "img_url": "https://pics.filmaffinity.com/Forrest_Gump-212765827-large.jpg"
     },
     {
@@ -28,7 +28,7 @@
         "year": 2016,
         "genre": "Ciencia Ficción",
         "country": "hospitalet",
-        "duration": "100",
+        "duration": 100,
         "img_url": "https://pics.filmaffinity.com/La_llegada-686966912-large.jpg"
     },
     {
@@ -36,7 +36,7 @@
         "year": 2022,
         "genre": "Drama",
         "country": "hospitalet",
-        "duration": "150",
+        "duration": 150,
         "img_url": "https://pics.filmaffinity.com/As_bestas-275688233-large.jpg"
     }
 ]
