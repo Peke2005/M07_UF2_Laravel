@@ -120,12 +120,12 @@ class FilmController extends Controller
     
         return view("films.list", ["films" => $films_filtered, "title" => $title]);
     }
-    public function countFilm(){
+    public function countFilms(){
         $title = "Contador de todas las pelis";
         $films = FilmController::readFilms();
 
         $count = count($films);
 
-        return view("films.list", ["contador" => $count, "title" => $title]);
+        return view("films.count", ["contador" => $count, "title" => $title]);
     }
 }
