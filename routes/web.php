@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FilmController;
 use App\Http\Middleware\ValidateYear;
+use App\Http\Middleware\ValidateUrl;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,4 +32,8 @@ Route::middleware('year')->group(function() {
     });
 });
 
-
+Route::middleware('url')->group(function () {
+    Route::group(['prefix' => 'filmin'], function () {
+        Route::post('createFilm/', [FilmController::class, "createFilm"])->name('createFilm');
+    });
+});

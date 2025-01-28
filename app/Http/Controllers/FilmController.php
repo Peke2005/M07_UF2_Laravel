@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class FilmController extends Controller
 {
@@ -17,6 +18,14 @@ class FilmController extends Controller
      * List films older than input year 
      * if year is not infomed 2000 year will be used as criteria
      */
+    public static function readJson(){
+        if (!Storage::exists('films.json')) {
+            return [];
+        }
+    
+        $content = Storage::get('films.json');
+        return json_decode($content, true) ?? [];
+    }
     public function listOldFilms($year = null)
     {        
         $old_films = [];
@@ -127,5 +136,46 @@ class FilmController extends Controller
         $count = count($films);
 
         return view("films.count", ["contador" => $count, "title" => $title]);
+    }
+
+    /* CREATE FILM AND IS FILM */
+
+    public function isFilm($name){
+        $films = FilmController::readFilms();
+        foreach($films as $film){
+            if($film["name"] == $name){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function createFilm(Request $request){
+        $title = "Creaccion de pelicula";
+        $films = FilmController::readFilms();
+        $filmName = $request->input('name');
+        $year = $request->input('year');
+        $genre = $request->input('genre');
+        $contry = $request->input('country');
+        $duration = $request->input('duration');
+        $imageURL = $request->input('image_url');
+
+        if (($this->isFilm($filmName))) {
+            return redirect('/')->withErrors(['error' => 'El nombre de la película ya existe.']);
+        }
+
+        $film = [
+            'name' => $filmName,
+            'year' => $year,
+            'genre' => $genre,
+            'country' => $contry,
+            'duration' => $duration,
+            'img_url' => $imageURL
+        ];
+        array_push($films,$film);
+        
+        Storage::put('/public/films.json', json_encode($films,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+
+        return view('films.list', ['films' => $films, 'title' => $title]);
     }
 }

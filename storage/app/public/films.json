@@ -38,5 +38,13 @@
         "country": "hospitalet",
         "duration": 150,
         "img_url": "https://pics.filmaffinity.com/As_bestas-275688233-large.jpg"
+    },
+    {
+        "name": "cars 2",
+        "year": "2005",
+        "genre": "Accion",
+        "country": "España",
+        "duration": "190",
+        "img_url": "https://pics.filmaffinity.com/cars_2-593734717-msmall.jpg"
     }
 ]
