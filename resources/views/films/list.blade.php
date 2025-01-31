@@ -1,5 +1,5 @@
+@include('master.header')
 <h1>{{$title}}</h1>
-
 @if(empty($films))
     <FONT COLOR="red">No se ha encontrado ninguna película</FONT>
 @else
@@ -27,3 +27,4 @@
     </table>
 </div>
 @endif
+@include('master.footer')

@@ -10,6 +10,154 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
     <!-- Include any additional stylesheets or scripts here -->
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Contenedor principal */
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #333;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        /* Estilo de los títulos */
+        h1 {
+            color: #333;
+            font-size: 2rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        /* Botones */
+        .btn-primary {
+            background-color: #ff6347;
+            border-color: #ff6347;
+            font-weight: bold;
+            border-radius: 50px;
+            padding: 12px 30px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff4500;
+            border-color: #ff4500;
+            transform: scale(1.05);
+        }
+
+        /* Enlaces */
+        a {
+            color: #ff6347;
+            font-weight: 500;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* Formulario */
+        .form-label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-control {
+            border-radius: 15px;
+            padding: 12px;
+            border: 2px solid #ddd;
+            box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            border-color: #ff6347;
+            box-shadow: 0 0 10px rgba(255, 99, 71, 0.7);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Estilo para los enlaces del menú */
+        .nav-item {
+            font-weight: 500;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-size: 1rem;
+            padding: 8px 12px;
+        }
+
+        .nav-link:hover {
+            color: #ff6347 !important;
+        }
+
+        /* Estilo para los links en la lista */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        ul li {
+            margin: 8px 0;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: blueviolet;
+            font-weight: 500;
+        }
+
+        ul li a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* Formulario destacable */
+        .formulario {
+            background: linear-gradient(135deg, #ff6347, #ff4500);
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .formulario h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+    </style>
 </head>
 
 <body class="container">
@@ -64,8 +212,8 @@
             @endif
         </form>
     </div>
-    <!-- Add Bootstrap JS and Popper.js (required for Bootstrap) -->
     @include('master.footer')
+    <!-- Add Bootstrap JS and Popper.js (required for Bootstrap) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
