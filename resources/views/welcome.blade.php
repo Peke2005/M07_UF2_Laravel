@@ -44,8 +44,7 @@
 
         /* Botones */
         .btn-primary {
-            background-color: #ff6347;
-            border-color: #ff6347;
+            background-color: lightpink;
             font-weight: bold;
             border-radius: 50px;
             padding: 12px 30px;
@@ -54,8 +53,8 @@
         }
 
         .btn-primary:hover {
-            background-color: #ff4500;
-            border-color: #ff4500;
+            background-color: purple;
+            border-color: white;
             transform: scale(1.05);
         }
 
