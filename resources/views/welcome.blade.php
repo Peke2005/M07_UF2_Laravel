@@ -169,6 +169,7 @@
         <li><a href=/filmout/filmsByGenre>Pelis filtrado por genero</a></li>
         <li><a href=/filmout/sortFilms>Pelis ordenado por año de mas nuevo a mas antiguo</a></li>
         <li><a href=/filmout/countFilms>Contador de pelis</a></li>
+        <li><a href=/actorout/listactors>Todos los actores</a></li>
     </ul>
     <div class="formulario">
         <h1>Añadir Película</h1>
