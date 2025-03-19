@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FilmController extends Controller
 {
@@ -12,7 +13,14 @@ class FilmController extends Controller
      */
     public static function readFilms(): array {
         $films = Storage::json('/public/films.json');
-        return $films;
+        $filmsBBDD = DB::table('films')->get()->toArray();
+
+        $arraybbdd= array_map(function($film){
+            return (array) $film;
+        }, $filmsBBDD);
+
+        $filmsJuntas = array_merge($films, $arraybbdd);
+        return $filmsJuntas;
     }
     /**
      * List films older than input year 
@@ -152,7 +160,6 @@ class FilmController extends Controller
 
     public function createFilm(Request $request){
         $title = "Creaccion de pelicula";
-        $films = FilmController::readFilms();
         $filmName = $request->input('name');
         $year = $request->input('year');
         $genre = $request->input('genre');
@@ -160,22 +167,34 @@ class FilmController extends Controller
         $duration = $request->input('duration');
         $imageURL = $request->input('image_url');
 
-        if (($this->isFilm($filmName))) {
-            return redirect('/')->withErrors(['error' => 'El nombre de la película ya existe.']);
-        }
-
         $film = [
             'name' => $filmName,
             'year' => $year,
             'genre' => $genre,
             'country' => $contry,
             'duration' => $duration,
-            'img_url' => $imageURL
+            'img_url' => $imageURL, 
+            "created_at" => \Carbon\Carbon::now(),
+            "updated_at" => \Carbon\Carbon::now(),
         ];
-        array_push($films,$film);
-        
-        Storage::put('/public/films.json', json_encode($films,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
 
-        return view('films.list', ['films' => $films, 'title' => $title]);
+
+        if(env('TIPO') == "json"){
+            if (($this->isFilm($filmName))) {
+                return redirect('/')->withErrors(['error' => 'El nombre de la película ya existe.']);
+            }
+            $jsonString = file_get_contents('../storage/app/public/films.json');
+            $films = json_decode($jsonString,true);
+
+            array_push($films,$film);
+            $json = json_encode($films, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+            file_put_contents('../storage/app/public/films.json',$json);
+        }else{
+            DB::table("films")->insert($film);
+        }
+
+        $film = FilmController::readFilms();
+
+        return view('films.list', ['films' => $film, 'title' => $title]);
     }
 }

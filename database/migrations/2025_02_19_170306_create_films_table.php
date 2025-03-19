@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("genre",50);
             $table->string("country", 50);
             $table->integer("duration");
-            $table->string("img_ur", 255);
+            $table->string("img_url", 255);
             $table->timestamps();
         });
     }

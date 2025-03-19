@@ -22,7 +22,7 @@ class FilmFakerSeeder extends Seeder
                 'genre' => $faker->randomElement(["Terror", "Comedia", "Accion", "Suspense", "Ciencia Ficcion", "Romance"]),
                 'country' => $faker->country,
                 'duration' => $faker->numberBetween(90, 180),
-                'img_ur' => $faker->imageUrl(400, 600, 'movies'),
+                'img_url' => $faker->imageUrl(400, 600, 'movies'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

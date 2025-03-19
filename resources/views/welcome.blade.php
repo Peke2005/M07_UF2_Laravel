@@ -84,6 +84,7 @@
             border: 2px solid #ddd;
             box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
             font-size: 1rem;
+            height: 45px;
         }
 
         .form-control:focus {
@@ -169,8 +170,24 @@
         <li><a href=/filmout/filmsByGenre>Pelis filtrado por genero</a></li>
         <li><a href=/filmout/sortFilms>Pelis ordenado por año de mas nuevo a mas antiguo</a></li>
         <li><a href=/filmout/countFilms>Contador de pelis</a></li>
+
+        <h1>Actores</h1>
         <li><a href=/actorout/listactors>Todos los actores</a></li>
+        <li><a href=/actorout/contactors>Contador de todos los actores</a></li>
     </ul>
+    
+    <form action="{{ route('listByDecade') }}" method="GET">
+        @csrf
+        <select name="year" id="">
+            <option value="1980-1989">1980-1989</option>
+            <option value="1990-1999">1990-1999</option>
+            <option value="2000-2009">2000-2009</option>
+            <option value="2010-2019">2010-2019</option>
+            <option value="2020-2029">2020-2029</option>
+        </select>
+        </div> <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+
     <div class="formulario">
         <h1>Añadir Película</h1>
         <form action="{{ route('createFilm') }}" method="POST">

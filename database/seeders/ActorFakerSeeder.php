@@ -21,7 +21,7 @@ class ActorFakerSeeder extends Seeder
                 'surname' => $faker->lastName,
                 'birthdate' => $faker->date,
                 'country' => $faker->country,
-                'img_ur' => $faker->imageUrl(400, 600, 'people'),
+                'img_url' => $faker->imageUrl(400, 600, 'people'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
