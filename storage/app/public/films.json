@@ -66,5 +66,15 @@
         "img_url": "https://pics.filmaffinity.com/cars_2-593734717-msmall.jpg",
         "created_at": "2025-03-19T18:45:45.027952Z",
         "updated_at": "2025-03-19T18:45:45.027957Z"
+    },
+    {
+        "name": "Polete3",
+        "year": "2005",
+        "genre": "Accion",
+        "country": "España",
+        "duration": "190",
+        "img_url": "https://pics.filmaffinity.com/cars_2-593734717-msmall.jpg",
+        "created_at": "2025-03-21T17:41:09.198568Z",
+        "updated_at": "2025-03-21T17:41:09.198573Z"
     }
 ]

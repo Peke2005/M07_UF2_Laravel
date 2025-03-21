@@ -19,7 +19,7 @@
                 <td>{{$actor->surname}}</td>
                 <td>{{$actor->birthdate}}</td>
                 <td>{{$actor->country}}</td>
-                <td><img src="{{$actor->img_ur}}" style="width: 100px; heigth: 120px;" /></td>
+                <td><img src="{{$actor->img_url}}" style="width: 100px; heigth: 120px;" /></td>
             </tr>
         @endforeach
     </table>
