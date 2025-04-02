@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Film;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class FilmController extends Controller
 {
@@ -13,7 +14,7 @@ class FilmController extends Controller
      */
     public static function readFilms(): array {
         $films = Storage::json('/public/films.json');
-        $filmsBBDD = DB::table('films')->get()->toArray();
+        $filmsBBDD = Film::all()->toArray();
 
         $arraybbdd= array_map(function($film){
             return (array) $film;
@@ -174,8 +175,6 @@ class FilmController extends Controller
             'country' => $contry,
             'duration' => $duration,
             'img_url' => $imageURL, 
-            "created_at" => \Carbon\Carbon::now(),
-            "updated_at" => \Carbon\Carbon::now(),
         ];
 
 
@@ -190,7 +189,7 @@ class FilmController extends Controller
             $json = json_encode($films, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
             file_put_contents('../storage/app/public/films.json',$json);
         }else{
-            DB::table("films")->insert($film);
+            Film::create($film);
         }
 
         $film = FilmController::readFilms();
