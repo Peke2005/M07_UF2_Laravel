@@ -102,7 +102,7 @@ class FilmController extends Controller
 
         //if year and genre are null
         if (is_null($genre))
-            return view('films.list', ["films" => $films, "title" => $title]);
+            return view('films.list', ["films" => $films, "title" => $title]); 
 
         //list based on year or genre informed
         foreach ($films as $film) {
