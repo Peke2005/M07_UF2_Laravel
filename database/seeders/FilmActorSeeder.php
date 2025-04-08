@@ -20,7 +20,7 @@ class FilmActorSeeder extends Seeder
         }
 
         for ($i = 0; $i < 10; $i++) {
-            DB::table('films_actors')->insert([
+            DB::table('actor_film')->insert([
                 'film_id' => $filmIds[array_rand($filmIds)],
                 'actor_id' => $actorIds[array_rand($actorIds)],
                 'created_at' => now(),
