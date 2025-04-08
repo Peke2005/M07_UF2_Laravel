@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Actor;
 use App\Models\Film;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
@@ -195,5 +196,16 @@ class FilmController extends Controller
         $film = FilmController::readFilms();
 
         return view('films.list', ['films' => $film, 'title' => $title]);
+    }
+
+    public function index()
+    {
+        $films = Film::all();
+        $filmsWithActors = $films->map(function ($film) {
+            $film->actors = $film->Actors()->get();
+            return $film;
+        });
+    
+        return response()->json($filmsWithActors, 200, [], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
     }
 }
